@@ -1,0 +1,92 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{graphicx}
+\usepackage{ulem}
+%\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage[latin1]{inputenc}
+\usepackage[danish]{babel}
+%\usepackage{nicefrac}
+\begin{document}
+\begin{center}
+{\LARGE Project 1}
+\begin{flushright}
+\small \today
+\end{flushright}
+\end{center}
+
+\newcommand{\ud}{\, \mathrm{d}}
+\newcommand{\mb}[1]{\mathbf{#1}}
+\newcommand{\tr}[1]{\textrm{#1}}
+\newcommand{\indep}{{\;\bot\!\!\!\!\!\!\bot\;}}
+
+\newenvironment{nospace}%
+{\noindent\ignorespaces}%
+{\par\noindent%
+  \ignorespacesafterend}
+\section*{Opgave A}
+
+
+\section*{Opgave 4}
+\subsection*{a)}
+Vi betragter $k$ uafhaengige stokastiske variable med antal paramter $n$ og sandsynlighedsparamter $p$, dette vil sige
+\[
+\mathbf{X}_i \sim{ \textrm{bin} \left( n,p \right) } , \textrm{ for } i = 1,\dots,k
+\]
+
+
+\subsection*{b)}
+Den empiriske varians, kan findes ved at kigge paa opgave 3.26, og beskrives som
+\[
+s^2 = \frac{1}{n-1}\sum_{i = 1}^{n}\left(\mathbf{X}_i - \mathbf{\overline{X}}\right)^2
+\]
+Da vi betragter $k$ stokastiske variable fremfor $n$, har vi altsaa at
+\[
+s^2 = \frac{1}{k-1}\sum_{i = 1}^{k}\left(\mathbf{X}_i - \mathbf{\overline{X}}\right)^2
+\]
+Vi skal nu finde middelvaerdien af dette, hvilket vil sige at vi skal kigge paa
+\[
+\textrm{E}(s^2) = \textrm{E}\left( \frac{1}{k-1}\sum_{i = 1}^{k}\left(\mathbf{X}_i - \mathbf{\overline{X}}\right)^2 \right)
+\]
+\[
+= \frac{1}{k-1}\sum_{i = 1}^{k} \left( \textrm{E}\left(\mathbf{X}_i - \mathbf{\overline{X}} \right)^{2}\right)
+\]
+\[
+= \frac{1}{k-1}\sum_{i = 1}^{k} \left( \textrm{E}\left(\mathbf{X}_{i}^{2} + \mathbf{\overline{X}}^{2} - 2\mathbf{X}_i\mathbf{\overline{X}} \right) \right)
+\]
+Vi kan ved at bruge saetning 3.7.6 og 3.7.4, dele ovenstaaende op og tage middel vaerdien af hvert enkelt led, saaledes at vi har
+\[
+= \frac{1}{k-1} \sum_{i = 1}^{k} \left( \textrm{E} \left( \mathbf{X}_{i}^{2} \right) + \textrm{E} \left( \mathbf{\overline{X}}^{2} \right) - 2 \textrm{E} \left( \mathbf{X}_i \mathbf{\overline{X}} \right) \right)
+\]
+
+Vi betragter nu kun det foerste led, altsaa $E(\mathbf{X}_i^2)$. Til dette ved vi at der i henhold til 3.7.9 gaelder at
+\[
+\textrm{Var}\left(\mathbf{X}\right) = \textrm{E}\left( \mathbf{X^2} \right) - \left( \textrm{E} \left( X \right) \right)^2
+\]
+Her isolere vi $\textrm{E}\left( \mathbf{X^2} \right) = \textrm{Var}\left(\mathbf{X}\right) + \left( \textrm{E} \left( X \right) \right)^2$ fra foerste del af opgave 4 ved vi at $\textrm{Var}\left( \mathbf{X}_i \right) = np(1-p)$ og $\left(\textrm{E}\left(\mathbf{X}_i\right)\right)^2 = n^2p^2$
+Derfor har vi at
+\[
+\textrm{E}\left( \mathbf{X}_{i}^{2} \right) = np(1-p) + n^2p^2
+\]
+Det samme goer sig naesten gaeldende for ledet $\textrm{E}\left(\mathbf{\overline{X}}^{2} \right)$, her har vi fra foerste del af opgaven at
+\[
+\textrm{Var}\left(\mathbf{\overline{X}} \right) = \frac{np(1-p)}{k} \textrm{ og } \left(\textrm{E}\left(\mathbf{\overline{X}}\right)\right)^2 = n^2p^2
+\]
+Derfor har vi at
+\[
+\textrm{E}\left(\mathbf{\overline{X}}^{2} \right) = \frac{np(1-p)}{k} + n^2p^2
+\]
+Der betragtes nu det sidste led som har formen
+\[
+\textrm{E}\left( \mathbf{X}_i \mathbf{\overline{X}}\right)
+\]
+\[
+= \tr{E}\left( \mb{X}_i \frac{1}{k} \sum_{j = 1}^{k} \mb{X}_j \right)
+\]
+\[
+= \frac{1}{k} \sum_{j = 1}^{k} \tr{E}\left( \mb{X}_i \mb{X}_j \right)
+\]
+Her kan vi i henhold til saetning 3.7.7 goere foelgende, da $\mb{X}_i \indep \mb{X}_j$
+
+
+
+\end{document}
