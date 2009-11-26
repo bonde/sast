@@ -39,7 +39,7 @@ assignment1 <- function() {
 ##########################################
 
 # Assigment 2
-assignment2 <- function() {
+assignment2_3_5 <- function() {
     # Define the simulation using a random binom
     n    <- 1000;
     size <- c(8, 20, 100);
@@ -49,6 +49,12 @@ assignment2 <- function() {
         # Do a simulation and count the observations of each occurrence
         sim <- rbinom(n, s, prob);
         simulation <- table(sim);
+
+        # Assignment 3
+        # Print mean and var
+        print(paste("Mean for simulation with size ",s, " is: ", mean(sim), sep=""));
+        print(paste("Var for simulation with size ",s, " is: ", var(sim), sep=""));
+        print("");
 
         # Get the values coresponding to an occurrence
         values <- as.numeric(names(simulation));
@@ -58,50 +64,14 @@ assignment2 <- function() {
         # Combine the simulation and the theoretical vectors
         comb <- rbind(simulation, theoretical);
 
-        # Set up the filename for the plot, draw, close pipe and release variables
+        # Assignment 2
+        # Set up the filename for the plot, then draw it
         name <- paste(s, "_sim-theo_plot_2.png", sep="");
         png(name);
         barplot(comb, beside=TRUE, legend.text=TRUE);
-        dev.off();
-    }
-}
 
-##########################################
-
-# Assigment 3
-assignment3 <- function() {
-    # Define the simulation using a random binom
-    n    <- 1000;
-    size <- c(8, 20, 100);
-    prob <- 0.25;
-
-    for (s in size) {
-        # Do a simulation and print
-        sim <- rbinom(n, s, prob);
-        print(paste("Mean for simulation with size ",s, " is: ", mean(sim), sep=""));
-        print(paste("Var for simulation with size ",s, " is: ", var(sim), sep=""));
-        print("");
-    }
-}
-
-##########################################
-
-# Assigment 5
-assignment5 <- function() {
-    # Define the simulation using a random binom
-    n    <- 1000;
-    size <- c(8, 20, 100);
-    prob <- 0.25;
-
-    for (s in size) {
-        # Do a simulation and count the observations of each occurrence
-        sim <- rbinom(n, s, prob);
-        simulation <- table(sim);
-
-        # Get the values coresponding to an occurrence
-        values <- as.numeric(names(simulation));
-
-        # Set up the filename for the plot, draw, close pipe and release variables
+        # Assignment 5
+        # Set up the filename for the histogram, draw and close pipe
         histname <- paste(s, "_hist_5.png", sep="");
         png(histname);
         hist(sim, prob=TRUE);
@@ -114,6 +84,4 @@ assignment5 <- function() {
 # Main
 
 assignment1();
-assignment2();
-assignment3();
-assignment5();
+assignment2_3_5();
