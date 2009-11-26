@@ -2,8 +2,6 @@
 
 # R statistics for the course "Sandsynlighedsregning og statistik"
 # at the Department of Mathematics, University of Copenhagen
-#
-# Ulrik Bonde, 2009
 
 ##########################################
 #
@@ -30,15 +28,12 @@ assignment1 <- function() {
         png(name);
         plot(E, sshfunk, "h", ylab="Sandsynlighedsfunktion");
         dev.off();
-
-        # Clean up for next iteration
-        rm(name, E);
     }
 }
 
 ##########################################
 
-# Assigment 2
+# Assigment 2, 3, and 5
 assignment2_3_5 <- function() {
     # Define the simulation using a random binom
     n    <- 1000;

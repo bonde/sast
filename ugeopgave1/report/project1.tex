@@ -1,0 +1,83 @@
+\documentclass[a4paper, 10pt, final]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Pakker
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{a4wide}
+\usepackage[danish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{verbatim}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage[small,bf]{caption}
+\usepackage[mathcal]{euscript}
+\usepackage{listings}
+\usepackage{charter}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{subfig}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Indstillinger
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\parindent=5pt
+\parskip=8pt plus 2pt minus 4pt
+\lstset{language=R, basicstyle=\scriptsize, showstringspaces=false,
+numbers=left, stepnumber=1, numberstyle=\tiny}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Titel, forfatter og dato
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{Projektopgave 1\\ ``Sandsynlighed og statistik''}
+\author{Michael 'BP' Andersen -- laekremichael@bigtitsonsmallteens.com\\ Henrik 'Klatretøzen' Jensen \\ Ulrik Bonde -- bonde@diku.dk}
+\date{\today}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Indhold
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\section*{Opgave 1}
+\input{opgave1.tex}
+
+\section*{Opgave 2}
+
+\section*{Opgave 3}
+\begin{verbatim}
+[1] ``Mean for simulation with size 8 is: 2.029''
+[1] ``Var for simulation with size 8 is: 1.60376276276276''
+[1] ``
+[1] ''Mean for simulation with size 20 is: 4.997``
+[1] ''Var for simulation with size 20 is: 3.55654754754755``
+[1] ''``
+[1] ''Mean for simulation with size 100 is: 25.087``
+[1] ''Var for simulation
+\end{verbatim}
+
+\section*{Opgave 4}
+
+\section*{Opgave 5}
+
+\section*{Opgave 6}
+
+\section*{Opgave 7}
+
+\section*{Opgave 8}
+
+\section*{Opgave 9}
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Bilag
+\appendix
+
+\section{Source code}
+\subsection{main.r \label{app_source1}}
+\lstinputlisting{../src/main.r}
+
+\end{document}
