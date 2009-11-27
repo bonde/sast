@@ -1,0 +1,76 @@
+\documentclass[a4paper, 10pt, final]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Pakker
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{a4wide}
+\usepackage[danish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{verbatim}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage[small,bf]{caption}
+\usepackage[mathcal]{euscript}
+\usepackage{listings}
+\usepackage{charter}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{subfig}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Indstillinger
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\parindent=5pt
+\parskip=8pt plus 2pt minus 4pt
+\lstset{language=R, basicstyle=\scriptsize, showstringspaces=false,
+numbers=left, stepnumber=1, numberstyle=\tiny}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Titel, forfatter og dato
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{Projektopgave 1\\ ``Sandsynlighedsregning og statistik''}
+\author{Michael 'BP' Andersen -- laekremichael@bigtitsonsmallteens.com\\ Henrik 'Klatretøzen' Jensen \\ Ulrik Bonde -- bonde@diku.dk}
+\date{\today}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Indhold
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\section*{Opgave 1}
+\input{opgave1.tex}
+
+\section*{Opgave 2}
+\input{opgave2.tex}
+
+\section*{Opgave 3}
+\input{opgave3.tex}
+
+\section*{Opgave 4}
+
+\section*{Opgave 5}
+\input{opgave5.tex}
+
+\section*{Opgave 6}
+
+\section*{Opgave 7}
+
+\section*{Opgave 8}
+
+\section*{Opgave 9}
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Bilag
+\appendix
+
+\section{Source code}
+\subsection{main.r \label{app_source1}}
+\lstinputlisting{../src/main.r}
+
+\end{document}
