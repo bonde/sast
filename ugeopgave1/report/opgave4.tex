@@ -1,18 +1,13 @@
 \documentclass[a4paper,11pt]{article}
 \usepackage{graphicx}
 \usepackage{ulem}
-%\usepackage{mathrsfs}
+\usepackage{mathrsfs}
 \usepackage{amssymb}
-\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
 \usepackage[danish]{babel}
 %\usepackage{nicefrac}
 \begin{document}
-\begin{center}
-{\LARGE Project 1}
-\begin{flushright}
-\small \today
-\end{flushright}
-\end{center}
 
 \newcommand{\ud}{\, \mathrm{d}}
 \newcommand{\mb}[1]{\mathbf{#1}}
@@ -23,61 +18,94 @@
 {\noindent\ignorespaces}%
 {\par\noindent%
   \ignorespacesafterend}
-\section*{Opgave A}
-
-
-\section*{Opgave 4}
 \subsection*{a)}
-Vi betragter $k$ uafhaengige stokastiske variable med antal paramter $n$ og sandsynlighedsparamter $p$, dette vil sige
+Vi betragter $k$ uafh\ae ngige stokastiske variable med antalsparameter $n$ og sandsynlighedsparameter $p$, dette vil sige
 \[
-\mathbf{X}_i \sim{ \textrm{bin} \left( n,p \right) } , \textrm{ for } i = 1,\dots,k
+\mb{X}_i \sim{ \tr{bin} \left( n,p \right) } , \tr{ for } i = 1,\dots,k
+\]
+Der skal nu findes middelv\ae rdien $\tr{E}(\overline{\mb{X}})$, hvor $\overline{\mb{X}} = \frac{1}{k} \sum_{i = 1}^k \mb{X}_i$, da $\mb{X}_i$ er binomialfordelt med antalsparameter $n$ og sandsynlighedsparameter $p$ er $\tr{E}(\mb{X}_i) = np$. Derfor f\o lger udregningen
+\[
+\tr{E}\mb{\overline{X}} = \tr{E} \left(\frac{1}{k}\sum_{i = 1}^k \mb{X}_i \right)
 \]
 
+\[
+= \frac{1}{k}\sum_{i = 1}^k \tr{E}(\mb{X}_i)
+\]
+
+\[
+= \frac{1}{k}k np
+\]
+
+\[
+= np
+\]
+
+Vi skal nu finde det samme for variansen, dette g\o res p\aa f\o lgende m\aa de, vi ved at $\tr{Var}(\mb{\overline{X}}) = \tr{E}(\mb{\overline{X}^2}) - \tr{E}(\mb{\overline{X}})^2$ og der vides at $\tr{Var}(\mb{X}_i) = np(1-p)$.
+\[
+\tr{Var}(\mb{\overline{X}}) = \tr{Var}(\frac{1}{k} \sum_{i = 1}^k \mb{X}_i)
+\]
+
+\[
+= \frac{1}{k^2} \sum_{i = 1}^k \tr{Var}(\mb{X}_i)
+\]
+
+\[
+=\frac{1}{k^2} \sum_{i = 1}^k np(1-p)
+\]
+
+\[
+\frac{1}{k^2} k np(1-p)
+\]
+Derfor er
+
+\[
+\tr{Var}(\mb{\overline{X}}) = \frac{np(1-p)}{k}
+\]
 
 \subsection*{b)}
-Den empiriske varians, kan findes ved at kigge paa opgave 3.26, og beskrives som
+Den empiriske varians, kan findes ved at kigge p\aa\ opgave 3.26, og beskrives som
 \[
-s^2 = \frac{1}{n-1}\sum_{i = 1}^{n}\left(\mathbf{X}_i - \mathbf{\overline{X}}\right)^2
+s^2 = \frac{1}{n-1}\sum_{i = 1}^{n}\left(\mb{X}_i - \mb{\overline{X}}\right)^2
 \]
-Da vi betragter $k$ stokastiske variable fremfor $n$, har vi altsaa at
+Da vi betragter $k$ stokastiske variable fremfor $n$, har vi alts\aa\ at
 \[
-s^2 = \frac{1}{k-1}\sum_{i = 1}^{k}\left(\mathbf{X}_i - \mathbf{\overline{X}}\right)^2
+s^2 = \frac{1}{k-1}\sum_{i = 1}^{k}\left(\mb{X}_i - \mb{\overline{X}}\right)^2
 \]
-Vi skal nu finde middelvaerdien af dette, hvilket vil sige at vi skal kigge paa
+Vi skal nu finde middelv\ae rdien af dette, hvilket vil sige at vi skal kigge p\aa
 \[
-\textrm{E}(s^2) = \textrm{E}\left( \frac{1}{k-1}\sum_{i = 1}^{k}\left(\mathbf{X}_i - \mathbf{\overline{X}}\right)^2 \right)
-\]
-\[
-= \frac{1}{k-1}\sum_{i = 1}^{k} \left( \textrm{E}\left(\mathbf{X}_i - \mathbf{\overline{X}} \right)^{2}\right)
+\tr{E}(s^2) = \tr{E}\left( \frac{1}{k-1}\sum_{i = 1}^{k}\mb{X}_i - \mb{\overline{X}}\right)^2
 \]
 \[
-= \frac{1}{k-1}\sum_{i = 1}^{k} \left( \textrm{E}\left(\mathbf{X}_{i}^{2} + \mathbf{\overline{X}}^{2} - 2\mathbf{X}_i\mathbf{\overline{X}} \right) \right)
+= \frac{1}{k-1}\sum_{i = 1}^{k} \tr{E}\left(\mb{X}_i - \mb{\overline{X}} \right)^{2}
 \]
-Vi kan ved at bruge saetning 3.7.6 og 3.7.4, dele ovenstaaende op og tage middel vaerdien af hvert enkelt led, saaledes at vi har
 \[
-= \frac{1}{k-1} \sum_{i = 1}^{k} \left( \textrm{E} \left( \mathbf{X}_{i}^{2} \right) + \textrm{E} \left( \mathbf{\overline{X}}^{2} \right) - 2 \textrm{E} \left( \mathbf{X}_i \mathbf{\overline{X}} \right) \right)
+= \frac{1}{k-1}\sum_{i = 1}^{k} \tr{E}\left(\mb{X}_{i}^{2} + \mb{\overline{X}}^{2} - 2\mb{X}_i\mb{\overline{X}} \right)
+\]
+Vi kan ved at bruge s\ae tning 3.7.6 og 3.7.4, dele ovenst\aa ende op og tage middel v\ae rdien af hvert enkelt led, s\aa ledes at vi har
+\[
+= \frac{1}{k-1} \sum_{i = 1}^{k} \left( \tr{E} \left( \mb{X}_{i}^{2} \right) + \tr{E} \left( \mb{\overline{X}}^{2} \right) - 2 \tr{E} \left( \mb{X}_i \mb{\overline{X}} \right) \right)
 \]
 
-Vi betragter nu kun det foerste led, altsaa $E(\mathbf{X}_i^2)$. Til dette ved vi at der i henhold til 3.7.9 gaelder at
+Vi betragter nu kun det foerste led, altsaa $E(\mb{X}_i^2)$. Til dette ved vi at der i henhold til 3.7.9 gaelder at
 \[
-\textrm{Var}\left(\mathbf{X}\right) = \textrm{E}\left( \mathbf{X^2} \right) - \left( \textrm{E} \left( X \right) \right)^2
+\tr{Var}\left(\mb{X}\right) = \tr{E}\left( \mb{X}^2 \right) - \left( \tr{E} \left( \mb{X} \right) \right)^2
 \]
-Her isolere vi $\textrm{E}\left( \mathbf{X^2} \right) = \textrm{Var}\left(\mathbf{X}\right) + \left( \textrm{E} \left( X \right) \right)^2$ fra foerste del af opgave 4 ved vi at $\textrm{Var}\left( \mathbf{X}_i \right) = np(1-p)$ og $\left(\textrm{E}\left(\mathbf{X}_i\right)\right)^2 = n^2p^2$
+Her isolerer vi $\tr{E}\left( \mb{X^2} \right) = \tr{Var}(\mb{X}) + \left( \tr{E} ( \mb{X} ) \right)^2$ fra f\o rste del af opgave 4 ved vi at $\tr{Var}\left( \mb{X}_i \right) = np(1-p)$ og $\left(\tr{E}\left(\mb{X}_i\right)\right)^2 = n^2p^2$
 Derfor har vi at
 \[
-\textrm{E}\left( \mathbf{X}_{i}^{2} \right) = np(1-p) + n^2p^2
+\tr{E}\left( \mb{X}_{i}^{2} \right) = np(1-p) + n^2p^2
 \]
-Det samme goer sig naesten gaeldende for ledet $\textrm{E}\left(\mathbf{\overline{X}}^{2} \right)$, her har vi fra foerste del af opgaven at
+Det samme g\o r sig n\ae sten g\ae ldende for ledet $\tr{E}(\mb{\overline{X}}^{2} )$, her har vi fra f\o rste del af opgaven at
 \[
-\textrm{Var}\left(\mathbf{\overline{X}} \right) = \frac{np(1-p)}{k} \textrm{ og } \left(\textrm{E}\left(\mathbf{\overline{X}}\right)\right)^2 = n^2p^2
+\tr{Var}\left(\mb{\overline{X}} \right) = \frac{np(1-p)}{k} \tr{ og } \left(\tr{E}\left(\mb{\overline{X}}\right)\right)^2 = n^2p^2
 \]
 Derfor har vi at
 \[
-\textrm{E}\left(\mathbf{\overline{X}}^{2} \right) = \frac{np(1-p)}{k} + n^2p^2
+\tr{E}\left(\mb{\overline{X}}^{2} \right) = \frac{np(1-p)}{k} + n^2p^2
 \]
 Der betragtes nu det sidste led som har formen
 \[
-\textrm{E}\left( \mathbf{X}_i \mathbf{\overline{X}}\right)
+\tr{E}\left( \mb{X}_i \mb{\overline{X}}\right)
 \]
 \[
 = \tr{E}\left( \mb{X}_i \frac{1}{k} \sum_{j = 1}^{k} \mb{X}_j \right)
@@ -85,8 +113,41 @@ Der betragtes nu det sidste led som har formen
 \[
 = \frac{1}{k} \sum_{j = 1}^{k} \tr{E}\left( \mb{X}_i \mb{X}_j \right)
 \]
-Her kan vi i henhold til saetning 3.7.7 goere foelgende, da $\mb{X}_i \indep \mb{X}_j$
+Her kan vi i henhold til s\ae tning 3.7.7 g\o re f\o lgende, da $\mb{X}_i \indep \mb{X}_j$
+\[
+= \frac{1}{k} \left( \sum_{\substack{j = 1 \\ j \neq i}}^{k} \left( \tr{E} \mb{X}_i \tr{E} \mb{X}_j \right) + \tr{E} \left( \mb{X}_{i}^{2} \right) \right)
+\]
+Vi tager nu resultaterne fra f\o rste halv del af opgaven og bruger her.
+\[
+= \frac{1}{k}\left( \sum_{\substack{j = 1 \\ j \neq i}}^{k} \left( n^2p^2 + np \left( 1 - p \right) + n^2p^2 \right) \right)
+\]
+\[
+= \frac{1}{k} \left( \left(k-1 \right) n^2p^2 + np \left( 1 - p \right) + n^2p^2 \right)
+\]
+Disse resultater inds\ae ttes nu i vores oprindelige formel
+\[
+\frac{1}{k-1}\sum_{i=1}^{k}\left( \tr{E}\left(\mb{X}_i^2\right) + \tr{E}\left( \mb{\overline{X}}^2\right) - 2\tr{E}\left(\mb{X}_i\mb{\overline{X}} \right) \right)
+\]
+\[
+= \frac{1}{k-1}\sum_{i=1}^{k} \left( np(1-p)+n^2p^2 + \frac{np(1-p)}{k} + n^2p^2 - 2\frac{1}{k} \left( \left( k-1 \right) n^2p^2 + np \left( 1-p \right) + n^2p^2 \right) \right)
+\]
+\[
+= \frac{1}{k-1} \left( \left( knp \left( 1-p \right) + kn^2p^2 + np(1-p) + kn^2p^2 \right) - 2 \left( \left( k-1 \right) n^2p^2 + np \left( 1-p \right) + n^2p^2\right) \right)
+\]
+\[
+= \frac{1}{k-1} \left( knp \left( 1-p \right) + kn^2p^2  + np \left( 1-p \right) + kn^2p^2 - 2 kn^2p^2 +2n^2p^2 - 2np \left( 1-p \right)-2n^2p^2 \right)
+\]
 
+\[
+= \frac{1}{k-1} \left( knp \left( 1-p \right) - np \left( 1-p \right) \right)
+\]
 
+\[
+= \frac{1}{k-1} \left( \left( k-1 \right) np \left( 1-p \right) \right)
+\]
+
+\[
+= np \left( 1-p \right)
+\]
 
 \end{document}
