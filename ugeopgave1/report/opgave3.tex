@@ -1,4 +1,11 @@
 {
+
+Metoden \texttt{assignment2\_3\_5()} printer ved kørsel gennemsnittet og
+den emperiske varians for de simulerede kørsler ud. Dette gøres ved
+metoder \texttt{mean()} og \texttt{var()} i \textbf{R}. Endvidere bruges
+metoden \texttt{paste()} til at manipulere tekststrenge. Vi får følgende
+udskrift:
+
 \begin{verbatim}
 [1] Mean for simulation with size 8 is: 2.029
 [1] Var for simulation with size 8 is: 1.60376276276276
@@ -9,4 +16,28 @@
 [1] Mean for simulation with size 100 is: 25.087
 [1] Var for simulation with size 100 is: 17.6550860860861
 \end{verbatim}
+
+Middelværdien for en binomialfordeling $\mathbf{X}$ med antalsparameter $n$ og
+sandsynlighedsparamter $p$ er givet som $\textrm{E}(\mathbf{X}) = np$ og
+variansen er givet ved $\textrm{Var}(\mathbf{X}) = np(1 - p)$. For
+$\mathbf{X} \sim{ \textrm{bin} \left( n,p \right) }$, hvor $n = 8$ og $p
+= 0.25$,
+får vi da
+\begin{eqnarray}
+    \textrm{E}(\mathbf{X}) = np = 8\cdot0.25 = 2 \\
+    \textrm{Var}(\mathbf{X}) = np(1 - p) = 8\cdot0.25(1 - 0.25) = 1.5
+\end{eqnarray}
+For $\mathbf{X} \sim{ \textrm{bin} \left( n,p \right) }$, hvor $n = 20$
+og $p = 0.25$, får vi
+\begin{eqnarray}
+    \textrm{E}(\mathbf{X}) = 20\cdot0.25 = 5 \\
+    \textrm{Var}(\mathbf{X}) = 20\cdot0.25(1 - 0.25) = 3.75
+\end{eqnarray}
+Endelig for $\mathbf{X} \sim{ \textrm{bin} \left( n,p \right) }$, hvor $n
+= 100$ og $p = 0.25$, får vi
+\begin{eqnarray}
+    \textrm{E}(\mathbf{X}) = 100\cdot 0.25 = 25 \\
+    \textrm{Var}(\mathbf{X}) = 100\cdot0.25(1 - 0.25) = 18.75
+\end{eqnarray}
+
 }

@@ -1,7 +1,7 @@
 #!/usr/bin/env Rscript
 
 # R statistics for the course "Sandsynlighedsregning og statistik"
-# at the Department of Mathematics, University of Copenhagen
+# at the Department of Mathematical Sciences, University of Copenhagen
 
 ##########################################
 #
