@@ -1,14 +1,4 @@
-\documentclass[a4paper,11pt]{article}
-\usepackage{graphicx}
-\usepackage{ulem}
-\usepackage{mathrsfs}
-\usepackage{amssymb}
-\usepackage{amsmath}
-\usepackage[utf8]{inputenc}
-\usepackage[danish]{babel}
-%\usepackage{nicefrac}
-\begin{document}
-
+{
 \newcommand{\ud}{\, \mathrm{d}}
 \newcommand{\mb}[1]{\mathbf{#1}}
 \newcommand{\tr}[1]{\textrm{#1}}
@@ -52,7 +42,7 @@ Vi skal nu finde det samme for variansen, dette g\o res p\aa f\o lgende m\aa de,
 \[
 =\frac{1}{k^2} \sum_{i = 1}^k np(1-p)
 \]
-
+Her benyttes s\ae tning 3.7.13.
 \[
 \frac{1}{k^2} k np(1-p)
 \]
@@ -86,7 +76,7 @@ Vi kan ved at bruge s\ae tning 3.7.6 og 3.7.4, dele ovenst\aa ende op og tage mi
 = \frac{1}{k-1} \sum_{i = 1}^{k} \left( \tr{E} \left( \mb{X}_{i}^{2} \right) + \tr{E} \left( \mb{\overline{X}}^{2} \right) - 2 \tr{E} \left( \mb{X}_i \mb{\overline{X}} \right) \right)
 \]
 
-Vi betragter nu kun det foerste led, altsaa $E(\mb{X}_i^2)$. Til dette ved vi at der i henhold til 3.7.9 gaelder at
+Vi betragter nu kun det f\o rste led, alts\aa\ $E(\mb{X}_i^2)$. Til dette ved vi at der i henhold til 3.7.9 g\ae lder at
 \[
 \tr{Var}\left(\mb{X}\right) = \tr{E}\left( \mb{X}^2 \right) - \left( \tr{E} \left( \mb{X} \right) \right)^2
 \]
@@ -149,5 +139,4 @@ Disse resultater inds\ae ttes nu i vores oprindelige formel
 \[
 = np \left( 1-p \right)
 \]
-
-\end{document}
+}
