@@ -11,27 +11,37 @@
 ##########################################
 
 f <- function(y, mu, sigma) {
-    return (1/(y*sqrt(2*pi*sigma^2)))*exp(-(log(y) - mu)^2/(2*sigma^2))
+
+  return (1/(sqrt(2 * pi * sigma^2) * y) * exp(-((log( y ) - mu)^2 / (2 * sigma^2))))
+
 }
 
 # Assignment 1
 assignment1 <- function() {
-    x <- rnorm(5000, 5, sqrt(0.25));
-    y <- exp(x);
+
+    set.seed(42)
+
+    mymu <- 5
+    mysigma <- sqrt(0.25)
+
+    xlog <- rlnorm(5000, meanlog=mymu, sdlog=mysigma)
 
     # Set the filename for the plot and plot the graph
     name <- "plot_1.png";
     png(name);
-    hist(y, prob=TRUE, nclass=25);
+    hist(xlog, prob=TRUE, nclass=50);
 
-    yval <- seq(0, 1000, 1);
-    fval <- f(yval, 5, sqrt(0.25));
+    yval <- seq(1, 1000, 1);
+    fval <- f(yval, mu=mymu, sigma=mysigma);
 
-    points(yval, fval, type="l");
+    points(yval, fval, type="l", col="red3");
 
     dev.off();
 
-    print(median(y))
+    print(mean(xlog))
+    print(sd(xlog))
+    print(var(xlog))
+
 }
 
 ##########################################
