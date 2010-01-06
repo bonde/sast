@@ -38,10 +38,12 @@ assignment1 <- function() {
 
     dev.off();
 
+    print("Assignment 1");
     print(median(xlog));
     print(mean(xlog));
     print(sd(xlog));
     print(var(xlog));
+    print("");
 
 }
 
@@ -107,13 +109,16 @@ assignment2 <- function() {
 
     dev.off();
 
+    # Exercise 11
+    # logavitM og logavitK ~ N(mean(log(avit)), sd(log(avit)))
+
     # Exercise 12
 
     name <- "plot_3_logavitM_with_normal.png";
     png(name);
     hist(logavitM, prob=TRUE);
 
-    yval <- seq(1,26,0.1);
+    yval <- seq(1,12,0.1);
     fval <- dnorm(yval, mean=mloga, sd=sdloga);
 
     points(yval, fval, type="l");
@@ -125,7 +130,7 @@ assignment2 <- function() {
     hist(avitM, prob=TRUE);
 
     yval <- seq(0,8000,1);
-    fval <- f(yval, mean(log(avitM)), sd(log(avitM)));
+    fval <- f(yval, mloga, sdloga);
 
     points(yval, fval, type="l");
 
@@ -142,6 +147,21 @@ assignment2 <- function() {
     points(yval, fval, type="l");
 
     dev.off();
+
+    name <- "plot_3_avitK_with_lognormal.png";
+    png(name);
+    hist(avitK, prob=TRUE);
+
+    yval <- seq(0,8000,1);
+    fval <- f(yval, mloga, sdloga);
+
+    points(yval, fval, type="l");
+
+    dev.off();
+
+    t.test(avitM, avitK);
+
+    t.test(logavitM, logavitK);
 
 }
 
