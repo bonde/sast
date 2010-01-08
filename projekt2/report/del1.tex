@@ -1,0 +1,189 @@
+\subsection{Opgave 1}
+
+\newcommand{\ud}{\, \mathrm{d}}
+
+For at vise at $Y$ er givet ved
+\[
+ f(y) = \frac{1}{y \sqrt{2\pi \sigma^{2}}} \exp{-\frac{(\log y - \mu)^{2}{2\sigma^{2}}}
+\]
+Benytter vi f\o rst formlen for normalfordeling $N \sim (\mu,
+\sigma^{2})$ givet ved M.S. 5.3.5
+\[
+p(x) = \frac{1}{\sqrt{2\pi\sigma^2}}\exp{-\frac{(y - \mu)^{2}}{2\sigma^{2}}}
+\]
+For at vise at ovenst\aa ende er lige med den logaritmiske
+normalfordeling benytter vi s\ae tning 5.4.1 omkring transformation af
+kontinuerte funktioner p\aa\ $\textbb{R}$
+
+Som siger f\o lgende
+\[
+q(y) = \left{
+\begin{array}{l l}
+ p(t^{-1}(y))\left| \frac{\ud}{\ud y} t^{-1}(y)) \right| & \textrm{ hvis } y \in (v,h) \\
+ 0 & hvis y \notin (v,h)
+\end{array}
+\]
+Ovenst\aa ende er produktet af to led, derfor kan vi betr\ae gte de to
+led individuelt.
+\[
+p(t^{-1}(y)) = \frac{1}{\sqrt{2\pi\sigma^{2}}} \exp{-\frac{(\log y - \mu)^{2}}{2\sigma^{2}}}
+\]
+
+\[
+\frac{\ud}{\ud y}\left| t^{-1}(y) \right| = y^{-1} = \frac{1}{y}
+\]
+
+Vi ganger nu disse to led sammen og f\aa r derfor
+
+\[
+q(y) = \left{
+\begin{array}{l l}
+\frac{1}{y \sqrt{2\pi\sigma^{2}}} \exp{-\frac{(\log y - \mu)^{2}}{2\sigma^{2}}} & {} \fxnote{Giv interval}\\
+0 & \textrm{hvis} y \in (0, \infty)
+\]
+
+Det er hermed vist at den logaritmiske normalfordeling er givet ved ovenst\aa ende formel.
+
+\subsection{Opgave 2}
+Vi skal her vise at middelv\ae rdien af $Y$ er givet ved $E(Y) = e^{\nicefrac{\mu+\sigma2}{2}}$. Vi benytter her s\ae tning 5.2.3, der siger at hvis der g\ae lder at
+\[
+\int_{I} \left|t(x)\right|p(x) \ud x < \infty
+\]
+Da den oprindelige stokastiske variable $X$ er baseret p\aa\ normalfordelingen og det vides at alle momenter for normalfordelingen eksistere, derfor vides det ogsaa at b\aa de middelv\ae rdi og varians m\aa\ eksistere. Og derfor er middelv\ae rdien givet ved
+\[
+E(t(X)) = \int_{I} t(x)p(x) \ud x
+\]
+\fxnote{Hvis vi antager?!?} Vores transformerede stokastiske variable er $e^{X}$, hvor $X \sim N(\mu, \sigma^{2})$
+\[
+E(e^{X}) = \int_{-\infty}^{\intfy} e^{x} \frac{1}{\sqrt{2\pi\sigma^{2}}} \exp{\frac{-(x - \mu)^{2}}{2\sigma^{2}}} \ud x
+\]
+Vi foretager her en substitution $t = x - \mu$
+\[
+= \int_{-\infty}^{\infty} e^{t+\mu} \frac{1}{\sqrt{2\pi\sigma^{2}}} \exp{\frac{-t^{2}}{2\sigma^{2}}} \ud t
+\]
+\[
+= e^{\mu} \int_{-\infty}^{\infty} e^{t} \frac{1}{\sqrt{2\pi\sigma^{2}}} \exp{\frac{-t^{2}}{2\sigma^{2}}} \ud t
+\]
+Integralet i ovenst\aa ende identifiseres nemt som v\ae rende $e^{T}$, hvor $T \sim N(0, \sigma^{2})$
+\[
+E(e^(T)) = \int_{-\infty}^{\infty} e^{t} \frac{1}{\sqrt{2\pi\sigma^{2}}} \exp{\frac{-t^{2}}{2\sigma^{2}}} \ud t
+\]
+\[
+= \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi\sigma^{2}}} \exp{\frac{-t^{2}}{2\sigma^{2}}+t} \ud t
+\]
+
+\[
+= \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi\sigma^{2}}} \exp{\frac{-t^{2}}{2\sigma^{2}}+t} \ud t
+\]
+Her er vi interesseret i at omskrive eksponenten til noget vi kan genkende.
+\[
+- \frac{t^2}{2\sigma^2}+t = - \frac{1}{2\sigma^2}\left( t^2-2\sigma^2t \right)
+\]
+
+\[
+= - \frac{1}{2\sigma^2}\left( \left( t - \sigma^2 \right^2 - \left(\sigma^2 \right)^2 \right)
+\]
+
+\[
+= - \frac{\left( t-\sigma^2 \right)^2}{2\sigma^2} + \frac{\sigma^2}{2}
+\] 
+Det s\ae tter vi nu ind igen, og f\aa r f\o lgenede
+\[
+\int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi\sigma^{2}}} \exp{-\frac{(t-\sigma^2)}{2\sigma^2}+\frac{\sigma^2}{2}}
+\]
+Dette kan vi nu omskrive til f\o lgende
+\[
+= \exp{\frac{\sigma^2}{2}} \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi\sigma^{2}}} \exp{-\frac{(t-\sigma^2)}{2\sigma^2}}
+\]
+Sidste led genkender man som v\ae rende t\ae thedsfunktionen for $T \sim N(\sigma^2,\sigma^2)$ som i henhold til 5.1.3 giver $1$.
+
+Sammen med resultatet fra $X \sim N(\mu, \sigma^2)$, giver dette.
+\[
+\exp{\mu} \exp{\frac{\sigma^2}{2}} = \exp{\mu + \frac{\sigma^2}{2}}
+\]
+Hermed er det vist at middelv\ae rdien for $Y$ er givet ved ovenst\aa ende.
+
+
+\subsection{Opgave 3}
+
+Der skal bestemmes medianen af fordelingen for $Y$. Hvis $x$ er givet ved fordelingen $F_{X}$. Da g\ae lder at
+\[
+q_x = F_{X}^{-1}
+\]
+Da $Y = exp(X)$, g\ae lder der
+\[
+F_{Y}(y) = P(Y \leq y) = P(\exp{X} \leq y) = P(X \leq \log{Y}) = F_{X}(\log{Y})
+\]
+Og derfor g\ae lder f\o lgende
+\[
+q_{Y}(z) = F_{Y}^{-1}(z) = (F_{X} \circ \log)^{-1}(z) = \exp{q_{X}(z)} 
+\]
+
+Derfor kan der nu inds\ae ttes $\frac{1}{2}$ som udg\o r medianen i fordeling.
+\[
+q_{Y}(\frac{1}{2}) = \exp{q_{X}(\frac{1}{2})}
+\]
+Der findes ikke noget eksplicit udtryk for v\ae rdien af fordelings funktion for normal fordelingen. Men det der skal l\o ses er
+\[
+\Phi(x) = \int_{-\infty}^{x} \phi(y) \du y
+\]
+
+\[
+\frac{1}{2} = \int_{-\infty}^{x} \phi(y) \du y
+\]
+Da vi nu betragter $X \sim N(\mu, \sigma^2)$, og det vides at $\mu$ er middelv\ae rdien og findes der hvor $x = \frac{1}{2}$. M\aa\ medianen v\ae re lige med
+\[
+\exp{\mu}
+\]
+
+\subsection{Opgave 4}
+
+Vi benytter igen samme fremgangs m\aa de som i opgave 2. Og betragter derfor
+\[
+(E(e^{T}))^2 = \int_{-\infty}^{\intfy} (\exp{t})^{2} \frac{1}{\sqrt{2\pi\sigma^{2}}} \exp{\frac{-(t - \mu)^{2}}{2\sigma^{2}}} \ud t
+\]
+Vi laver igen substitutionen $x = t - \mu$
+\[
+\exp{2\mu} \int_{-\infty}^{\intfy} = \exp{2x} \frac{1}{\sqrt{2\pi\sigma^{2}}} \exp{\frac{-x^{2}}{2\sigma^{2}}} \ud x
+\]
+\[
+\exp{2\mu} \int_{-\infty}^{\intfy} = \frac{1}{\sqrt{2\pi\sigma^{2}}} \exp{\frac{-x^{2}}{2\sigma^{2}}+2x} \ud x
+\]
+Vi tager nu eksponenten ud igen og behandler den
+\[
+\frac{-x^{2}}{2\sigma^{2}}+2x = -\frac{1}{2\sigma^2}\left( x^2 - 2x2\sigma^2 \right)
+\]
+
+\[
+= \frac{1}{2\sigma^2}\left( -\left(x - 2\sigma^2 \right)^2 - \left( 2\sigma^2 \right)^2 \right)
+\]
+\[
+= -\frac{(x - 2\sigma^2)^2}{2\sigma^2} + \frac{(2\sigma^2)^2}{2\sigma^2}
+\]
+
+\[
+= -\frac{(x - 2\sigma^2)^2}{2\sigma^2} + \frac{4\sigma^4}{2\sigma^2} = -\frac{(x-2\sigma^2)^2}{2\sigma^2} + 2\sigma^2
+\]
+Dette kan nu ind\ae ttes og der f\aa s derved
+\[
+\exp{2\mu} \int_{-\infty}^{\intfy} \frac{1}{\sqrt{2\pi\sigma^{2}}} \exp{-\frac{(x-\sigma^2)^2}{2\sigma^2} + 2\sigma^2} \du x
+\]
+
+\[
+\exp{2\mu+2\sigma^2} \int_{-\infty}^{\intfy} \frac{1}{\sqrt{2\pi\sigma^{2}}} \exp{-\frac{(x-\sigma^2)^2}{2\sigma^2}} \du x
+\]
+Integralet genkendes let som v\ae rende $T \sim N(2\sigma^2, \sigma^2)$.
+\[
+Var(Y) = E(Y^2) - (E(Y))^2
+\]
+Fra opgave 1 kan det udregnes at 
+\[
+E(Y^2) = \exp{\sigma^2 + 2\mu}
+\]
+Og vi har lige udregnet $(E(Y))^2$
+\[
+(E(Y))^2 = \exp{2\mu+2\sigma^2}
+\]
+\[
+Var(Y) = \exp{\sigma^2 + 2\mu} - \exp{2\mu+2\sigma^2} = (\exp{\sigma^2} - 1)\exp{2\mu + \sigma^2}
+\]
