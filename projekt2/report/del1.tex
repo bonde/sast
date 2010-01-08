@@ -4,7 +4,7 @@
 
 For at vise at $Y$ er givet ved
 \[
- f(y) = \frac{1}{y \sqrt{2\pi \sigma^{2}}} \exp{-\frac{(\log y - \mu)^{2}{2\sigma^{2}}}
+ f(y) = \frac{1}{y \sqrt{2\pi \sigma^{2}}} \exp{-\frac{(\log y - \mu)^{2}}{2\sigma^{2}}}
 \]
 Benytter vi f\o rst formlen for normalfordeling $N \sim (\mu,
 \sigma^{2})$ givet ved M.S. 5.3.5
@@ -13,15 +13,16 @@ p(x) = \frac{1}{\sqrt{2\pi\sigma^2}}\exp{-\frac{(y - \mu)^{2}}{2\sigma^{2}}}
 \]
 For at vise at ovenst\aa ende er lige med den logaritmiske
 normalfordeling benytter vi s\ae tning 5.4.1 omkring transformation af
-kontinuerte funktioner p\aa\ $\textbb{R}$
+kontinuerte funktioner p\aa\ $\mathbb{R}$
 
 Som siger f\o lgende
 \[
-q(y) = \left{
+q(y) = \left\{
 \begin{array}{l l}
  p(t^{-1}(y))\left| \frac{\ud}{\ud y} t^{-1}(y)) \right| & \textrm{ hvis } y \in (v,h) \\
  0 & hvis y \notin (v,h)
 \end{array}
+\right.
 \]
 Ovenst\aa ende er produktet af to led, derfor kan vi betr\ae gte de to
 led individuelt.
@@ -36,10 +37,12 @@ p(t^{-1}(y)) = \frac{1}{\sqrt{2\pi\sigma^{2}}} \exp{-\frac{(\log y - \mu)^{2}}{2
 Vi ganger nu disse to led sammen og f\aa r derfor
 
 \[
-q(y) = \left{
+q(y) = \left\{
 \begin{array}{l l}
-\frac{1}{y \sqrt{2\pi\sigma^{2}}} \exp{-\frac{(\log y - \mu)^{2}}{2\sigma^{2}}} & {} \fxnote{Giv interval}\\
+\frac{1}{y \sqrt{2\pi\sigma^{2}}} \exp{-\frac{(\log y - \mu)^{2}}{2\sigma^{2}}} & {} \\ %\fxnote{Giv interval}\\
 0 & \textrm{hvis} y \in (0, \infty)
+\end{array}
+\right.
 \]
 
 Det er hermed vist at den logaritmiske normalfordeling er givet ved ovenst\aa ende formel.
@@ -53,9 +56,9 @@ Da den oprindelige stokastiske variable $X$ er baseret p\aa\ normalfordelingen o
 \[
 E(t(X)) = \int_{I} t(x)p(x) \ud x
 \]
-\fxnote{Hvis vi antager?!?} Vores transformerede stokastiske variable er $e^{X}$, hvor $X \sim N(\mu, \sigma^{2})$
+Vores transformerede stokastiske variable er $e^{X}$, hvor $X \sim N(\mu, \sigma^{2})$
 \[
-E(e^{X}) = \int_{-\infty}^{\intfy} e^{x} \frac{1}{\sqrt{2\pi\sigma^{2}}} \exp{\frac{-(x - \mu)^{2}}{2\sigma^{2}}} \ud x
+E(e^{X}) = \int_{-\infty}^{\infty} e^{x} \frac{1}{\sqrt{2\pi\sigma^{2}}} \exp{\frac{-(x - \mu)^{2}}{2\sigma^{2}}} \ud x
 \]
 Vi foretager her en substitution $t = x - \mu$
 \[
@@ -81,7 +84,7 @@ Her er vi interesseret i at omskrive eksponenten til noget vi kan genkende.
 \]
 
 \[
-= - \frac{1}{2\sigma^2}\left( \left( t - \sigma^2 \right^2 - \left(\sigma^2 \right)^2 \right)
+= - \frac{1}{2\sigma^2}\left( \left( t - \sigma^2 \right)^2 - \left(\sigma^2 \right)^2 \right)
 \]
 
 \[
@@ -125,11 +128,11 @@ q_{Y}(\frac{1}{2}) = \exp{q_{X}(\frac{1}{2})}
 \]
 Der findes ikke noget eksplicit udtryk for v\ae rdien af fordelings funktion for normal fordelingen. Men det der skal l\o ses er
 \[
-\Phi(x) = \int_{-\infty}^{x} \phi(y) \du y
+\Phi (x) = \int_{-\infty}^{x} \phi (y) \ud y
 \]
 
 \[
-\frac{1}{2} = \int_{-\infty}^{x} \phi(y) \du y
+\frac{1}{2} = \int_{-\infty}^{x} \phi(y) \ud y
 \]
 Da vi nu betragter $X \sim N(\mu, \sigma^2)$, og det vides at $\mu$ er middelv\ae rdien og findes der hvor $x = \frac{1}{2}$. M\aa\ medianen v\ae re lige med
 \[
@@ -140,14 +143,14 @@ Da vi nu betragter $X \sim N(\mu, \sigma^2)$, og det vides at $\mu$ er middelv\a
 
 Vi benytter igen samme fremgangs m\aa de som i opgave 2. Og betragter derfor
 \[
-(E(e^{T}))^2 = \int_{-\infty}^{\intfy} (\exp{t})^{2} \frac{1}{\sqrt{2\pi\sigma^{2}}} \exp{\frac{-(t - \mu)^{2}}{2\sigma^{2}}} \ud t
+(E(e^{T}))^2 = \int_{-\infty}^{\infty} (\exp{t})^{2} \frac{1}{\sqrt{2\pi\sigma^{2}}} \exp{\frac{-(t - \mu)^{2}}{2\sigma^{2}}} \ud t
 \]
 Vi laver igen substitutionen $x = t - \mu$
 \[
-\exp{2\mu} \int_{-\infty}^{\intfy} = \exp{2x} \frac{1}{\sqrt{2\pi\sigma^{2}}} \exp{\frac{-x^{2}}{2\sigma^{2}}} \ud x
+\exp{2\mu} \int_{-\infty}^{\infty} = \exp{2x} \frac{1}{\sqrt{2\pi\sigma^{2}}} \exp{\frac{-x^{2}}{2\sigma^{2}}} \ud x
 \]
 \[
-\exp{2\mu} \int_{-\infty}^{\intfy} = \frac{1}{\sqrt{2\pi\sigma^{2}}} \exp{\frac{-x^{2}}{2\sigma^{2}}+2x} \ud x
+\exp{2\mu} \int_{-\infty}^{\infty} = \frac{1}{\sqrt{2\pi\sigma^{2}}} \exp{\frac{-x^{2}}{2\sigma^{2}}+2x} \ud x
 \]
 Vi tager nu eksponenten ud igen og behandler den
 \[
@@ -166,11 +169,11 @@ Vi tager nu eksponenten ud igen og behandler den
 \]
 Dette kan nu ind\ae ttes og der f\aa s derved
 \[
-\exp{2\mu} \int_{-\infty}^{\intfy} \frac{1}{\sqrt{2\pi\sigma^{2}}} \exp{-\frac{(x-\sigma^2)^2}{2\sigma^2} + 2\sigma^2} \du x
+\exp{2\mu} \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi\sigma^{2}}} \exp{-\frac{(x-\sigma^2)^2}{2\sigma^2} + 2\sigma^2} \ud x
 \]
 
 \[
-\exp{2\mu+2\sigma^2} \int_{-\infty}^{\intfy} \frac{1}{\sqrt{2\pi\sigma^{2}}} \exp{-\frac{(x-\sigma^2)^2}{2\sigma^2}} \du x
+\exp{2\mu+2\sigma^2} \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi\sigma^{2}}} \exp{-\frac{(x-\sigma^2)^2}{2\sigma^2}} \ud x
 \]
 Integralet genkendes let som v\ae rende $T \sim N(2\sigma^2, \sigma^2)$.
 \[
