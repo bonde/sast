@@ -1,4 +1,4 @@
-\subsection{Opgave 1}
+\subsection*{Opgave 1}
 
 \newcommand{\ud}{\, \mathrm{d}}
 
@@ -13,18 +13,18 @@ p(x) = \frac{1}{\sqrt{2\pi\sigma^2}}\exp{-\frac{(y - \mu)^{2}}{2\sigma^{2}}}
 \]
 For at vise at ovenst\aa ende er lige med den logaritmiske
 normalfordeling benytter vi s\ae tning 5.4.1 omkring transformation af
-kontinuerte funktioner p\aa\ $\mathbb{R}$
+kontinuerte funktioner p\aa\ $\mathbb{R}$.
 
 Som siger f\o lgende
 \[
 q(y) = \left\{
 \begin{array}{l l}
- p(t^{-1}(y))\left| \frac{\ud}{\ud y} t^{-1}(y)) \right| & \textrm{ hvis } y \in (v,h) \\
- 0 & hvis y \notin (v,h)
+ p(t^{-1}(y))\left| \frac{\ud}{\ud y} t^{-1}(y)) \right| & \textrm{hvis } y \in (v,h) \\
+ 0 & \textrm{hvis } y \notin (v,h)
 \end{array}
 \right.
 \]
-Ovenst\aa ende er produktet af to led, derfor kan vi betr\ae gte de to
+Ovenst\aa ende er produktet af to led, derfor kan vi betragte de to
 led individuelt.
 \[
 p(t^{-1}(y)) = \frac{1}{\sqrt{2\pi\sigma^{2}}} \exp{-\frac{(\log y - \mu)^{2}}{2\sigma^{2}}}
@@ -39,20 +39,20 @@ Vi ganger nu disse to led sammen og f\aa r derfor
 \[
 q(y) = \left\{
 \begin{array}{l l}
-\frac{1}{y \sqrt{2\pi\sigma^{2}}} \exp{-\frac{(\log y - \mu)^{2}}{2\sigma^{2}}} & {} \\ %\fxnote{Giv interval}\\
-0 & \textrm{hvis} y \in (0, \infty)
+\frac{1}{y \sqrt{2\pi\sigma^{2}}} \exp{-\frac{(\log y - \mu)^{2}}{2\sigma^{2}}} & \textrm{hvis } y \in (0, \infty) \\ %\fxnote{Giv interval}\\
+0 & \textrm{ellers }
 \end{array}
 \right.
 \]
 
 Det er hermed vist at den logaritmiske normalfordeling er givet ved ovenst\aa ende formel.
 
-\subsection{Opgave 2}
+\subsection*{Opgave 2}
 Vi skal her vise at middelv\ae rdien af $Y$ er givet ved $E(Y) = e^{\nicefrac{\mu+\sigma2}{2}}$. Vi benytter her s\ae tning 5.2.3, der siger at hvis der g\ae lder at
 \[
 \int_{I} \left|t(x)\right|p(x) \ud x < \infty
 \]
-Da den oprindelige stokastiske variable $X$ er baseret p\aa\ normalfordelingen og det vides at alle momenter for normalfordelingen eksistere, derfor vides det ogsaa at b\aa de middelv\ae rdi og varians m\aa\ eksistere. Og derfor er middelv\ae rdien givet ved
+Da er den oprindelige stokastiske variable $X$ er baseret p\aa\ normalfordelingen og det vides at alle momenter for normalfordelingen eksistere, derfor vides det ogs\aa\ at b\aa de middelv\ae rdi og varians m\aa\ eksistere. Og derfor er middelv\ae rdien givet ved
 \[
 E(t(X)) = \int_{I} t(x)p(x) \ud x
 \]
@@ -67,7 +67,7 @@ Vi foretager her en substitution $t = x - \mu$
 \[
 = e^{\mu} \int_{-\infty}^{\infty} e^{t} \frac{1}{\sqrt{2\pi\sigma^{2}}} \exp{\frac{-t^{2}}{2\sigma^{2}}} \ud t
 \]
-Integralet i ovenst\aa ende identifiseres nemt som v\ae rende $e^{T}$, hvor $T \sim N(0, \sigma^{2})$
+Integralet i ovenst\aa ende identificeres som v\ae rende $e^{T}$, hvor $T \sim N(0, \sigma^{2})$
 \[
 E(e^(T)) = \int_{-\infty}^{\infty} e^{t} \frac{1}{\sqrt{2\pi\sigma^{2}}} \exp{\frac{-t^{2}}{2\sigma^{2}}} \ud t
 \]
@@ -98,7 +98,7 @@ Dette kan vi nu omskrive til f\o lgende
 \[
 = \exp{\frac{\sigma^2}{2}} \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi\sigma^{2}}} \exp{-\frac{(t-\sigma^2)}{2\sigma^2}}
 \]
-Sidste led genkender man som v\ae rende t\ae thedsfunktionen for $T \sim N(\sigma^2,\sigma^2)$ som i henhold til 5.1.3 giver $1$.
+Integralet genkender man som v\ae rende t\ae thedsfunktionen for $T \sim N(\sigma^2,\sigma^2)$ som i henhold til 5.1.3 giver $1$.
 
 Sammen med resultatet fra $X \sim N(\mu, \sigma^2)$, giver dette.
 \[
@@ -107,9 +107,9 @@ Sammen med resultatet fra $X \sim N(\mu, \sigma^2)$, giver dette.
 Hermed er det vist at middelv\ae rdien for $Y$ er givet ved ovenst\aa ende.
 
 
-\subsection{Opgave 3}
+\subsection*{Opgave 3}
 
-Der skal bestemmes medianen af fordelingen for $Y$. Hvis $x$ er givet ved fordelingen $F_{X}$. Da g\ae lder at
+Der skal bestemmes medianen af fordelingen for $Y$. Hvis $x$ er givet ved fordelingen $F_{X}$, da g\ae lder at
 \[
 q_x = F_{X}^{-1}
 \]
@@ -126,7 +126,7 @@ Derfor kan der nu inds\ae ttes $\frac{1}{2}$ som udg\o r medianen i fordeling.
 \[
 q_{Y}(\frac{1}{2}) = \exp{q_{X}(\frac{1}{2})}
 \]
-Der findes ikke noget eksplicit udtryk for v\ae rdien af fordelings funktion for normal fordelingen. Men det der skal l\o ses er
+Der findes ikke noget eksplicit udtryk for v\ae rdien af fordelingsfunktion for normalfordelingen. Men det der skal l\o ses er
 \[
 \Phi (x) = \int_{-\infty}^{x} \phi (y) \ud y
 \]
@@ -134,14 +134,14 @@ Der findes ikke noget eksplicit udtryk for v\ae rdien af fordelings funktion for
 \[
 \frac{1}{2} = \int_{-\infty}^{x} \phi(y) \ud y
 \]
-Da vi nu betragter $X \sim N(\mu, \sigma^2)$, og det vides at $\mu$ er middelv\ae rdien og findes der hvor $x = \frac{1}{2}$. M\aa\ medianen v\ae re lige med
+Da vi nu betragter $X \sim N(\mu, \sigma^2)$, og det vides at $\mu$ er middelv\ae rdien og findes der hvor $x = \mu$, m\aa\ medianen v\ae re lige med
 \[
 \exp{\mu}
 \]
 
-\subsection{Opgave 4}
+\subsection*{Opgave 4}
 
-Vi benytter igen samme fremgangs m\aa de som i opgave 2. Og betragter derfor
+Vi benytter igen samme fremgangs m\aa de som i opgave 2, og betragter derfor
 \[
 (E(e^{T}))^2 = \int_{-\infty}^{\infty} (\exp{t})^{2} \frac{1}{\sqrt{2\pi\sigma^{2}}} \exp{\frac{-(t - \mu)^{2}}{2\sigma^{2}}} \ud t
 \]
@@ -167,7 +167,7 @@ Vi tager nu eksponenten ud igen og behandler den
 \[
 = -\frac{(x - 2\sigma^2)^2}{2\sigma^2} + \frac{4\sigma^4}{2\sigma^2} = -\frac{(x-2\sigma^2)^2}{2\sigma^2} + 2\sigma^2
 \]
-Dette kan nu ind\ae ttes og der f\aa s derved
+Dette kan nu inds\ae ttes og der f\aa s derved
 \[
 \exp{2\mu} \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi\sigma^{2}}} \exp{-\frac{(x-\sigma^2)^2}{2\sigma^2} + 2\sigma^2} \ud x
 \]
@@ -175,13 +175,13 @@ Dette kan nu ind\ae ttes og der f\aa s derved
 \[
 \exp{2\mu+2\sigma^2} \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi\sigma^{2}}} \exp{-\frac{(x-\sigma^2)^2}{2\sigma^2}} \ud x
 \]
-Integralet genkendes let som v\ae rende $T \sim N(2\sigma^2, \sigma^2)$.
+Det tilbagev\ae rende integrale genkendes som v\ae rende $X \sim N(\sigma^2, \sigma^2)$.
 \[
 Var(Y) = E(Y^2) - (E(Y))^2
 \]
-Fra opgave 1 kan det udregnes at 
+Med resultatet fra fra opgave 1 udregnes $E(Y^2)$ til 
 \[
-E(Y^2) = \exp{\sigma^2 + 2\mu}
+\exp{\sigma^2 + 2\mu}
 \]
 Og vi har lige udregnet $(E(Y))^2$
 \[
