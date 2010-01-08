@@ -1,0 +1,134 @@
+I undersøgelsen indgår der 1079 mænd og 1145 kvinder. Vi ser i figur
+\ref{avitPlots} og \ref{avitPlots_qq}, at den originale data ikke er
+normalfordelt, men når vi transformerer denne logaritmisk, har vi en
+normalfordeling.
+
+Vi siger derfor, at det logaritmisk transformerede indtag af A-vitamin for
+kvinder og mænd, er normalfordelt.
+
+Vi estimerer $\mu = \bar{x} = 7.361356$ og $\sigma = s = 0.4486289$. Vi har den teoretiske fordeling
+\begin{equation}
+    X\sim N(\mu, \sigma^2)
+    \label{teo_fordeling}
+\end{equation}
+og får den estimerede fordeling, ved at indsætte vores estimater til $\mu$ og
+$\sigma$ i \eqref{teo_fordeling}.
+\begin{equation}
+    X\sim N(7.361356, 0.2012679)
+\end{equation}
+
+I figur \ref{avitPlots_normal} ses hvordan de observerede værdier forholder sig
+til den estimerede fordeling.
+
+Vi undersøger nu, hvorvidt der er forskel på mænd og kvinders indtag af
+A-vitamin.  Vi bruger \texttt{R} til at lave en t-test på vores data. Vi får
+outputet vist i kodeboks \ref{t_test1_output}. Det 95 procents
+konfidensinterval aflæses direkte fra koden, mens estimatet for differensen
+Fra t-testen fås ved at trække de beregnede middelværdier fra hinanden.
+
+\begin{lstlisting}[caption={Udskrift fra T-test},captionpos=b,label={t_test1_output},numbers=left,
+    frame=tb, breaklines=false, float=h]
+        Welch Two Sample t-test
+
+        data:  logavitM and logavitK
+        t = 13.0815, df = 2206.488, p-value < 2.2e-16
+        alternative hypothesis: true difference in means is not equal to 0 
+        95 percent confidence interval:
+         0.2041469 0.2761477
+         sample estimates:
+         mean of x mean of y
+          7.484993  7.244845
+\end{lstlisting}
+
+Vores 95-procents konfidensinterval for differensen mellem middelværdierne er
+$[0.2041469, 0.2761477]$. Dvs. at der er 95\% sandsynlighed for at differensen
+mellem to middelværdier ligger i dette interval.  Vores estimat af differens af
+middelværdierne er $7.484993-7.244845 = 0.240148$, hvor vi har at $0.240148 \in
+[0.2041469, 0.2761477]$. Mænd og kvinders logaritmiske indtag af A-vitamin kan
+derfor godt være det samme.
+
+Ligesom vi kan finde medianen i den logaritmiske normalfordeling ved $e^{\mu}$,
+kan vi bruge samme transformation for grænserne og differensen. På grund af
+regneregler for eksponentialfunktionen vil vi automatisk få et forhold når vi
+transformerer en differens, da $e^{a - b} = \frac{e^a}{e^b}$.  Hvis vi
+transformerer estimatet og grænserne for konfidensintervalet for differensen,
+får vi et estimat og grænser for et konfidensinterval for forholdet, mellem
+medianerne i fordelingen af indtaget af A-vitamin, for mænd og kvinder.
+Konfidensintervallet for forholdet bliver $[1.226478, 1.318043]$ og differensen
+transformerer til $1.271437$. Vi har at $1.271437 \in [1.226478, 1.318043]$.
+
+Da $1 \notin [1.226478, 1.318043]$ kan tæller og nævner i forholdet ikke være
+identiske, og der er derfor mindst $95\%$ sandsynlighed for at kvinder og mænds
+indtag af A-vitamin er forskellige.
+
+\begin{figure}[!h]
+    \centering
+    \subfloat[A-vitaminindtag for kvinder]{
+        \includegraphics[width=0.5\textwidth]{../src/plot_3_avitK}
+        \label{avitK}
+    }
+    \subfloat[A-vitaminindtag for mænd]
+        {\includegraphics[width=0.5\textwidth]{../src/plot_3_avitM}
+        \label{avitM}
+    }\\
+    \subfloat[Logaritmisk tranformeret A-vitaminindtag for kvinder]{
+        \includegraphics[width=0.5\textwidth]{../src/plot_3_logavitK}
+        \label{logavitK}
+    }
+    \subfloat[Logaritmisk tranformeret A-vitaminindtag for mænd]{
+        \includegraphics[width=0.5\textwidth]{../src/plot_3_logavitM}
+        \label{logavitM}
+    }
+    \caption{Kvinder og mænds indtag af A-vitamin. Den originale data ligner
+    ikke en normalfordeling, men det gør den transformerede.}
+    \label{avitPlots}
+\end{figure}
+
+\begin{figure}[!h]
+    \centering
+    \subfloat[QQ-plot for kvinders indtag af A-vitaminindtag]{
+        \includegraphics[width=0.5\textwidth]{../src/plot_3_avitK_qq}
+        \label{avitK_qq}
+    }
+    \subfloat[QQ-plot for mænds A-vitaminindtag]
+        {\includegraphics[width=0.5\textwidth]{../src/plot_3_avitM_qq}
+        \label{avitM_qq}
+    }\\
+    \subfloat[QQ-plot af det logaritmisk tranformerede A-vitaminindtag for kvinder]{
+        \includegraphics[width=0.5\textwidth]{../src/plot_3_logavitK_qq}
+        \label{logavitK_qq}
+    }
+    \subfloat[QQ-plot af det logaritmisk tranformerede A-vitaminindtag for mænd]{
+        \includegraphics[width=0.5\textwidth]{../src/plot_3_logavitM_qq}
+        \label{logavitM_qq}
+    }
+    \caption{QQ-plots for indtag af A-vitamin. Det ses, at når data bliver
+    logaritmisk transformeret, får vi en normalfordeling, da punktene, i disse
+    qq-plots, følger en diagonal.}
+    \label{avitPlots_qq}
+\end{figure}
+
+\begin{figure}[!h]
+    \centering
+    \subfloat[Logaritmisk A-vitaminindtag for kvinder med estimeret tæthed]{
+        \includegraphics[width=0.5\textwidth]{../src/plot_3_logavitK_with_normal}
+        \label{logavitK_normal}
+    }
+    \subfloat[A-vitaminindtag for kvinder med estimeret tæthed]
+        {\includegraphics[width=0.5\textwidth]{../src/plot_3_avitK_with_lognormal}
+        \label{avitK_lognormal}
+    }\\
+    \subfloat[Logaritmisk A-vitaminindtag for mænd med estimeret tæthed]{
+        \includegraphics[width=0.5\textwidth]{../src/plot_3_logavitM_with_normal}
+        \label{logavitM_normal}
+    }
+    \subfloat[A-vitaminindtag for mænd med estimeret tæthed]{
+        \includegraphics[width=0.5\textwidth]{../src/plot_3_avitM_with_lognormal}
+        \label{avitM_with_lognormal}
+    }
+    \caption{Det ses, at de observerede værdier nogenlunde følger den
+    estimerede tæthed. Man kan også se, at der er flere kvinder end mænd i
+    undersøgelsen, da værdierne for mænd ligger lidt under de estimerede
+    værdier og vice versa.}
+    \label{avitPlots_normal}
+\end{figure}

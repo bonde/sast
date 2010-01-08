@@ -163,9 +163,10 @@ assignment2 <- function() {
 
     dev.off();
 
-    t.test(avitM, avitK);
+    print(median(avitM));
+    print(median(avitK));
 
-    t.test(logavitM, logavitK);
+    t.test(logavitM, logavitK, var.equal=TRUE);
 
 }
 
