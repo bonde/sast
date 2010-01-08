@@ -1,0 +1,54 @@
+\subsection*{Opgave 5, 6, 7}
+Vi har simuleret 5000 observationer fra den logaritmiske
+normalfordeling med parametre $(5, 0.25)$. Plottet kan ses i figur \ref{log_plot_1}.
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{../src/plot_1}
+    \caption{Simulation af 5000 observationer fra den logaritmiske
+    normalfordeling med parametre $(5, 0.25)$.}
+    \label{log_plot_1}
+\end{figure}
+
+Ved brug af \textbf{R} har vi fundet stikprøvens gennemsnit, varians, spredning
+og median. Disse ses i udskriften fra programmet i kodeboks \ref{r_output_1}.
+
+\begin{lstlisting}[caption={Udskrift fra R-program},captionpos=b,label={r_output_1},numbers=left,
+    frame=tb, breaklines=false, float=h]
+[1] "Assignment 7"
+[1] "Middelvaerdi"
+[1] 167.1192
+[1] "Varians"
+[1] 7976.314
+[1] "Standardafvigelse"
+[1] 89.31021
+[1] "Median"
+[1] 147.5676
+\end{lstlisting}
+
+Ved at bruge formlerne fra Del 1, har vi regnet de teoretiske værdier for
+gennemsnit, varians, spredning og median. De ses herunder.
+
+\begin{align}
+    E(S) & = e^{\mu+\sigma^{2}/2}\nonumber\\
+         & = e^{5+0.125}\nonumber\\
+         & = 168.1741
+\end{align}
+\begin{align}
+    Var(S) & = (e^{\sigma^{2}} - 1)e^{2\mu+\sigma^2}\nonumber\\
+    & = (e^{0.25} - 1)e^{10+0.25}\nonumber\\
+    & = 8032.96
+\end{align}
+\begin{align}
+    \sqrt{Var(S)} & = \sqrt{8032.96}\nonumber\\
+    & = 89.62678
+\end{align}
+\begin{align}
+    F^{-1}(0.5) & = e^{\mu}\nonumber\\
+    & = e^{5}\nonumber\\
+    & = 148.4132
+\end{align}
+
+Det ses, at de teoretiske værdier ligger meget tæt på dem som er blevet
+udregnet fra stikprøven. Dette kan kan også ses ved at kigge på plottet i figur
+\ref{log_plot_1}, hvor tæthedsfunktionen følger de observerede værdier.  Det
+var også at forvente, når man har taget så stor en stikprøve.

@@ -38,10 +38,14 @@ assignment1 <- function() {
 
     dev.off();
 
-    print("Assignment 1");
+    print("Assignment 7");
+    print("Median");
     print(median(xlog));
+    print("Middelvaerdi");
     print(mean(xlog));
+    print("Standardafvigelse");
     print(sd(xlog));
+    print("Varians");
     print(var(xlog));
     print("");
 
